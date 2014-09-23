@@ -1,0 +1,30 @@
+/* Christian Conable
+   Assignment 2 - 48598
+   09/22/2014
+*/
+
+_start:
+	mov r0, #0
+	mov r4, #0
+	mov r2, #96
+	mov r3, #3
+	mov r1, r2
+	cmp r1, r3
+	blt switch
+	
+_increment:
+	add r0, r0, #1
+	sub r1, r1, r3
+	cmp r1, r3
+	bge _increment
+	
+switch:
+	mov r5, r0
+	mov r0, r1
+	cmp r4, #0
+	beq end
+	
+end:
+	mov r7, #1
+	swi 0
+	
